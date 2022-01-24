@@ -1,0 +1,75 @@
+# Searce
+All practice questions and assignments of programming
+
+/*
+An array is a data structure that keeps items of the same kind in a single memory block. Each memory position in an array, P, of size Q, has a unique index, I (where 0=i=Q), which may be referred as P[i] or Pi. Reverse an integer array.
+
+Example 
+P=[4,5,6]
+Return [6,5,4]
+
+Reverse an integer array. Description of the Function
+
+complete the reverseArray function in any programming language or your choice or you may write sudo code for the same
+
+The parameter(s) for reverseArray are:
+int P [q]: the array to reverse  
+
+Returns
+Int[q]: the reversed array
+
+Input format
+The first line includes an integer, Q, which represents the number of integers in P.
+P is made up of Q space-separated numbers on the second line.
+
+Constraints
+1<=Q<=103
+1<=p[i]<=104 where p[i]  is the ith integer in P
+
+
+Sample input 
+
+5
+8
+7
+6
+
+
+
+Sample output
+
+6
+7
+8
+5
+*/
+
+Solution:
+
+#include<stdio.h>
+int main()
+{
+int p[103],i,n;
+
+printf("Enter the limit of array\n");
+scanf("%d",&n);
+
+printf("Enter the elements in array\n");
+for(i=0;i<n;i++)
+{
+scanf("%d",&p[i]);
+}
+
+printf("Original array is:\n");
+for(i=0;i<n;i++)
+{
+printf("%d\n",p[i]);
+}
+
+printf("Revere elements in array are:\n");
+for(i=n-1;i>=0;i--)
+{     
+printf("%d\n",p[i]);     
+} 
+}
+
