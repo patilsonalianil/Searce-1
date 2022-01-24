@@ -2,6 +2,9 @@
 int main()
 {
 int arr[5],n,i;
+printf("Enter the limit of array\n");
+scanf("%d",&n);
+
 for(i=0;i<5;i++)
 {
 scanf("%d",&arr[i]);
@@ -9,7 +12,7 @@ scanf("%d",&arr[i]);
 
 for(i=0;i<5;i++)
 {
-printf("%d\n",a[i]); 
+printf("%d\n",arr[i]); 
 }
 return 0;
 }
