@@ -1,0 +1,36 @@
+/* Question 2
+
+This is a good way to get some practise with traversing a linked list. Print each node's data element, one per line, given a pointer to the head node of a linked list. There is nothing to output if the head reference is null (meaning the list is empty).
+
+Create a function to print LinkedLists.
+
+The parameter(s) for printLinkedList are as follows:
+SinglyLinkedList The head of the list is referred to as the node head.
+Print the value of each node in a new line
+
+Input format
+The first line of input contains p, which is the number of linked list entries. The data values for each node are contained in the next p lines, each with one element.
+
+Complete the  printlinkedlist  in any programming language or your choice or you may write sudo code for the same
+
+Constraints
+1<=P<=1000
+1<=list[i]<=1000 where list [i] is the ith element of the linked list
+*/
+
+Solution:
+/*Function to solve above problem*/
+
+void printLinkedList(SinglyLinkedListNode* head) 
+{
+SinglyLinkedListNode* temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+}
+
+
+
+
