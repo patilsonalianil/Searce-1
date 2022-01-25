@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+#define MAX 20
+int top;
+char stack[MAX];
+void push(char item)
+{
+if(top==MAX-1)
+{
+printf("\nStack Overflow!!");
+}
+else{
+stack[++top]=item;
+}
+}
+void pop()
+{
+printf("%c",stack[top--]);
+}
+
+void main()
+{
+char str[MAX];
+int i,len=0;
+printf("\nEnter some string:");
+scanf("%s",str);
+len=strlen(str);
+for(i=0;i<len;i++)
+{
+push(str[i]);
+}
+for(i=0;i<len;i++)
+{
+pop();
+}
+}
