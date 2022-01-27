@@ -42,7 +42,7 @@ Sample output
 7
 8
 5
-*/
+**********************************/
 
 Solution:
 
@@ -52,24 +52,24 @@ int main()
 int p[103],i,n;
 
 printf("Enter the limit of array\n");
-scanf("%d",&n);
+scanf("%d",&n);         //scanning size of array
 
 printf("Enter the elements in array\n");
 for(i=0;i<n;i++)
 {
-scanf("%d",&p[i]);
+scanf("%d",&p[i]);    //scanning elements from the user in an array
 }
 
 printf("Original array is:\n");
 for(i=0;i<n;i++)
 {
-printf("%d\n",p[i]);
+printf("%d\n",p[i]);       //printing original array
 }
 
 printf("Revere elements in array are:\n");
 for(i=n-1;i>=0;i--)
 {     
-printf("%d\n",p[i]);     
+printf("%d\n",p[i]);     //printing reverse array
 } 
 }
 
