@@ -61,7 +61,7 @@ stack<int>max;
 stack<int>s;
 max.push(0);
 int n;
-cin>>n;
+cin>>n;       //scanning the how much elements we want from user
 
 while(n--)
 {
@@ -70,7 +70,7 @@ cin>>a;
 if(a==1)
 {
 cin>>a;
-if(a>=max.top())max.push(a);
+if(a>=max.top())max.push(a);   
 s.push(a);
 }
 else if(a==2)
