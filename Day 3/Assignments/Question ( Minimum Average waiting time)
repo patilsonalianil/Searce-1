@@ -1,6 +1,6 @@
-/*Minimum Average Waiting time
+/* **Minimum Average Waiting time
 
-Solution   */
+Solution   *** */
 
 #include <cstdio>
 #include <cstdlib>
