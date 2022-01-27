@@ -2,7 +2,7 @@
 All practice questions and assignments of programming
 
 /*
-An array is a data structure that keeps items of the same kind in a single memory block. Each memory position in an array, P, of size Q, has a unique index, I (where 0=i=Q), which may be referred as P[i] or Pi. Reverse an integer array.
+An array is a data structure that keeps items of the same kind in a single memory block. Each memory position in an array, P,  of size Q, has a unique index, I (where 0=i=Q), which may be referred as P[i] or Pi. Reverse an integer array.
 
 Example 
 P=[4,5,6]
