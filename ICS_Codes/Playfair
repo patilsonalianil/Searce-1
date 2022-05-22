@@ -1,0 +1,173 @@
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+class playfair
+{
+    public:
+    char arr[5][5];
+    
+    
+    void genre_key_table(string key)
+    {
+        int len=key.size();
+        
+        vector<int>v(26,0);
+        for(int i=0;i<len;i++)
+        {
+            if(key[i]!='j')
+            {
+                v[key[i]-97]=2;
+            }
+        }
+        v['j'-97]=1;
+        int i=0,j=0;
+        for(int k=0;k<len;k++)
+        {
+            if(v[key[k]-97]==2)
+            {
+              v[key[i]-97]=1;  
+              
+              arr[i][j]=key[k];
+              j++;
+              if(j==5)
+              {
+                 j=0;
+                 i++;
+              }
+            }
+        }
+        
+        for(int k=0;k<26;k++)
+        {
+            if(v[k]==0)
+            {
+                arr[i][j]=(char)(k+97);
+                j++;
+                if(j==5)
+                {
+                    j=0;
+                    i++;
+                }
+            }
+        }
+
+    }
+    void serch(char a,char b,int v[])
+    {
+        
+        if(a=='j')
+            a='i';
+        else if(b=='j')
+               b='i';
+        for(int i=0;i<5;i++)
+        {
+            for(int j=0;j<5;j++)
+            {
+                if(arr[i][j]==a)
+                {
+                    v[0]=i;
+                    v[1]=j;
+                }
+                if(arr[i][j]==b)
+                {
+                    v[2]=i;
+                    v[3]=j;
+                }
+            }
+        }
+    }
+    int mod5(int a)
+    {
+        if(a<0)
+        {
+            a=a+5;
+        }
+        return a%5;
+    }
+    string encrypt(string pt)
+    {
+        int p_len=pt.size();
+        if(p_len%2==1)
+        {
+            pt+='z';
+        }
+        int v[4];
+        for(int i=0;i<p_len;i=i+2)
+        {
+            serch(pt[i],pt[i+1],v);
+            
+            if(v[0]==v[2])
+            {
+                pt[i]=arr[v[0]][(v[1]+1)%5];
+                pt[i+1]=arr[v[0]][(v[3]+1)%5];
+            }else if(v[1]==v[3])
+            {
+                pt[i]=arr[(v[0]+1)%5][v[1]];
+                pt[i+1]=arr[(v[2]+1)%5][v[3]];
+            }
+            else
+            {
+                pt[i]=arr[v[0]][v[3]];
+                pt[i+1]=arr[v[2]][v[1]];
+            }
+        }
+        return pt;
+    }
+    
+    string decrypt(string pt)
+    {
+        int p_len=pt.size();
+        int v[4]={0};
+        for(int i=0;i<p_len;i=i+2)
+        {
+            serch(pt[i],pt[i+1],v);
+            
+            if(v[0]==v[2])
+            {
+                pt[i]=arr[v[0]][mod5(v[1]-1)];
+                pt[i+1]=arr[v[0]][mod5(v[3]-1)];
+            }else if(v[1]==v[3])
+            {
+                pt[i]=arr[mod5(v[0]-1)][v[1]];
+                pt[i+1]=arr[mod5(v[2]-1)][v[3]];
+            }
+            else
+            {
+                pt[i]=arr[v[0]][v[3]];
+                pt[i+1]=arr[v[2]][v[1]];
+            }
+        }
+        return pt;
+    }
+    void print()
+    {
+        for(int i=0;i<5;i++)
+        {
+            for(int j=0;j<5;j++)
+              cout<<arr[i][j]<<" ";
+        cout<<endl;
+        }
+    }
+    
+    
+};
+int main()
+{
+    playfair p;
+    string key;
+    cout<<"enter key"<<" = ";
+    cin>>key;
+    string pt;
+    cout<<"enter pl"<<" = ";
+    cin>>pt;
+    p.genre_key_table(key);
+    p.print();
+    cout<<endl;
+    string enc = p.encrypt(pt);
+    cout<<"encrypted: "<<enc<<endl;
+    cout<<"decrypted: "<<p.decrypt(enc);
+    
+    return 0;
+}
