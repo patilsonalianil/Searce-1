@@ -55,3 +55,23 @@ cout<<"\nBob's Secret Key is "<<keyB;
 
 return 0;
 }
+
+--------------------------------------------------------------------------------------------==================================================
+//Diffie hellmen Python
+
+P=23
+G=9
+
+a=4
+b=3
+
+ka=pow(G,a)%P
+kb=pow(G,b)%P
+print("Ka ::",ka)
+print("Kb ::",kb)
+
+S1=pow(kb,a)%P
+S2=pow(ka,b)%P
+print("S1 ::",S1)
+print("S2 ::",S2)
+
